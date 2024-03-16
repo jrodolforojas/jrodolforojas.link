@@ -1,11 +1,11 @@
 import express, { json } from 'express'
+import { urlRouter } from './routes/url.js'
 
 const app = express()
 app.use(json())
+app.disable('x-powered-by')
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use('/url', urlRouter)
 
 const PORT = process.env.PORT || 1234
 
