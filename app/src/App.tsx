@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import CardLink from "./components/card-link"
 import { URL } from "./types/api/url"
-import { GithubIcon, LinkIcon, LinkedInIcon, YoutubeIcon } from "./components/icons"
+import { DiscordIcon, GithubIcon, InstagramIcon, LinkIcon, LinkedInIcon, MailIcon, YoutubeIcon } from "./components/icons"
 import CreateLinkForm from "./components/create-link-form"
 import { getAllUrls, getUrlByShorten } from "./services/api/url"
 
@@ -9,6 +9,9 @@ const ICONS = {
   youtube: YoutubeIcon,
   linkedin: LinkedInIcon,
   github: GithubIcon,
+  instagram: InstagramIcon,
+  email: MailIcon,
+  discord: DiscordIcon,
   default: LinkIcon
 }
 
@@ -24,9 +27,7 @@ function App() {
   const pathname = window.location.pathname.replace('/', '')
   useEffect(() => {
     getUrl(pathname)
-  }, [])
-
-  if (pathname.length > 0) return null
+  }, [pathname])
 
   const [links, setLinks] = useState<URL[]>([])
   const [isOpen, setIsOpen] = useState(false)
