@@ -5,7 +5,7 @@
   "description": "",
   "workspaces": [
     "api",
-    "web"
+    "app"
   ],
   "main": "index.js",
   "scripts": {
