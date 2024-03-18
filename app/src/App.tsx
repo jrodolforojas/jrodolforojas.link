@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import CardLink from "./components/card-link"
-import { URL } from "./types/api/url"
-import { DiscordIcon, GithubIcon, InstagramIcon, LinkIcon, LinkedInIcon, MailIcon, YoutubeIcon } from "./components/icons"
-import CreateLinkForm from "./components/create-link-form"
-import { getAllUrls, getUrlByShorten } from "./services/api/url"
+import CardLink from "../../web/src/components/card-link"
+import { URL } from "../../web/src/types/api/url"
+import { DiscordIcon, GithubIcon, InstagramIcon, LinkIcon, LinkedInIcon, MailIcon, YoutubeIcon } from "../../web/src/components/icons"
+import CreateLinkForm from "../../web/src/components/create-link-form"
+import { getAllUrls, getUrlByShorten } from "../../web/src/services/api/url"
 
 const ICONS = {
   youtube: YoutubeIcon,

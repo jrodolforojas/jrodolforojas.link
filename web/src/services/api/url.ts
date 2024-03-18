@@ -1,4 +1,4 @@
-import { URL, URLResponse } from "../../types/api/url"
+import { URL, URLResponse } from '../../types/api/url'
 
 const API_URL = 'https://jrodolfolinks.up.railway.app/url'
 

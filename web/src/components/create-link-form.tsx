@@ -1,16 +1,18 @@
-import { Dialog } from "@headlessui/react"
+'use client'
+
+import { Dialog } from '@headlessui/react'
+import { FormEvent, useState } from 'react'
 import * as zod from 'zod'
 
 const createLinkSchema = zod.object({
   url: zod.string().url(),
   name: zod.string().min(3, 'Name must be at least 3 characters long')
 })
-export default function CreateLinkForm({ isOpen, handleChange }: {
-  isOpen: boolean
-  handleChange: () => void
-}) {
+export default function CreateLinkForm () {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleIsOpen = () => setIsOpen(!isOpen)
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = Object.fromEntries(new FormData(event.currentTarget))
     try {
@@ -27,14 +29,14 @@ export default function CreateLinkForm({ isOpen, handleChange }: {
       })
 
       if (response.ok) {
-        handleChange()
+        handleIsOpen()
       }
     } catch (error) {
       console.error(error)
     }
   }
   return (
-    <Dialog open={isOpen} onClose={handleChange} className="relative z-50">
+    <Dialog open={isOpen} onClose={handleIsOpen} className="relative z-50">
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-8">
